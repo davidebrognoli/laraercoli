@@ -1,5 +1,6 @@
-import React from 'react' 
+import React, { useState } from 'react' 
 import { Link } from 'gatsby';
+import classNames from 'classnames'
 
 interface SiteLink {
   id: string;
@@ -8,6 +9,8 @@ interface SiteLink {
 }
 
 const Header = () => {
+  const [open, setOpen] = useState(false)
+
   const links: SiteLink[] = [
     { id: 'home', href: '/', label: 'Lara Ercoli'},
     { id: 'materiale', href: '/materiale', label: 'Materiali'},
@@ -15,23 +18,42 @@ const Header = () => {
     { id: 'contatti', href: '/contatti', label: 'Contatti'},
   ]
 
+  const click = () => {
+    setOpen(!open)
+  }
+
+  const burgerClass = classNames('le-header__burger', {
+    'le-header__burger--open': open
+  })
+
+  const menuClass = classNames('le-header__menu', {
+    'le-header__menu--open': open
+  })
+
   return(
     <header className="le-header">
-      <nav className="le-header__nav">
-        <ul className="le-header__nav-items">
-          {links.map(
-            (l) => {
-              return (
-                <li className="le-header__nav-item" key={l.id}>
-                  <Link className="le-header__nav-link" to={l.href} activeClassName="le-header__nav-link--active">
-                    {l.label}
-                  </Link>
-                </li>
-              )
-            }
-          )}
-        </ul>
-      </nav>
+      <div className="le-header__container">
+        <button className={burgerClass} onClick={click}>
+          <span className="le-header__burger-bar"></span>
+          <span className="le-header__burger-bar"></span>
+          <span className="le-header__burger-bar"></span>
+        </button>
+        <nav className={menuClass}>
+          <ul className="le-header__menu-items">
+            {links.map(
+              (l) => {
+                return (
+                  <li className="le-header__menu-item" key={l.id}>
+                    <Link className="le-header__menu-link" to={l.href} activeClassName="le-header__menu-link--active">
+                      {l.label}
+                    </Link>
+                  </li>
+                )
+              }
+            )}
+          </ul>
+        </nav>
+      </div>
     </header>
   )
 }

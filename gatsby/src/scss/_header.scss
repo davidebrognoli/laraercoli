@@ -3,71 +3,171 @@ $prefix: le-header;
 .#{$prefix} {
   position: sticky;
   top: 0;
+  padding: 10px 0;
+  background-color: $main-light;
+  box-shadow: 0px 0px 7px 1px rgba($main-dark, 0.25);
 
-  &__nav{
-    padding: 15px 0 25px;
+  &__container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__burger{
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    height: 13px;
+    margin-right: 15px;
+
+    &:focus{
+      outline: none;
+    }
+
+    &-bar{
+      display: block;
+      width: 18px;
+      height: 1px;
+      background-color: $main-dark;
+      transition: all .2s ease-out;
+
+      .#{$prefix}__burger--open &{
+        background-color: $secondary-color;
+      }
+
+      &:nth-child(1){
+        .#{$prefix}__burger--open &{
+          transform: rotate(-45deg);
+        }
+      }
+
+      &:nth-child(2){
+        margin: 5px 0;
+        .#{$prefix}__burger--open &{
+          display: none;
+        }
+      }
+
+      &:nth-child(3){
+        .#{$prefix}__burger--open &{
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  &__menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: $main-light;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .2s ease-out;
+
+    &--open{
+      max-height: 240px;
+    }
+
     &-items{
       list-style: none;
-      margin: 0; 
+      margin: 0;
       padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    }
+
+    &-item{
+      text-align: center;
     }
 
     &-link{
-      text-decoration: none;
+      display: block;
       text-transform: uppercase;
+      text-decoration: none;
       color: $primary-color;
-      position: relative;
-      padding: 10px 0;
-      display: flex;
-      align-items: center;
-
-      &:before{
-        content: "";
-        display: block;
-        vertical-align: middle;
-        width: 10px;
-        height: 10px;
-        border: 1px solid $primary-color;
-        margin-right: 5px;
-      }
-
-      &:after{
-        content: "";
-        position: absolute;
-        bottom: 5px;
-        left: 50%;
-        right: 50%;
-        height: 1px;
-        background-color: $secondary-color;
-        transition: all 0.3s;
-      }
-
-      &:hover{
-        color: $secondary-color;
-
-        &:before{
-          border-color: $secondary-color;
-        }
-
-        &:after{
-          left: 0;
-          right: 0;
-        }
-      }
-
+      padding: 20px;
+      
       &--active{
-        font-weight: bold;
+        color: $secondary-color;
+      }
+    }
+  }
+}
 
+@media only screen and (min-width: $desktop-min-width) {
+  .#{$prefix}{
+    
+    &__burger{
+      display: none;
+    }
+
+    &__menu{
+      max-height: none;
+      position: static;
+      width: 100%;
+
+      &-items{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &-link{
+        
+        position: relative;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+    
         &:before{
-          background-color: $secondary-color;
-          border-color: $secondary-color;
+          content: "";
+          display: block;
+          width: 10px;
+          height: 10px;
+          border: 1px solid $primary-color;
+          margin-right: 5px;
         }
-
+    
+        &:after{
+          content: "";
+          position: absolute;
+          bottom: 5px;
+          left: 50%;
+          right: 50%;
+          height: 1px;
+          background-color: $secondary-color;
+          transition: all 0.3s;
+        }
+    
         &:hover{
-          color: $primary-color;
+          color: $secondary-color;
+    
+          &:before{
+            border-color: $secondary-color;
+          }
+    
+          &:after{
+            left: 0;
+            right: 0;
+          }
+        }
+    
+        &--active{
+          font-weight: bold;
+    
+          &:before{
+            background-color: $secondary-color;
+            border-color: $secondary-color;
+          }
+    
+          &:hover{
+            color: $primary-color;
+          }
         }
       }
     }
