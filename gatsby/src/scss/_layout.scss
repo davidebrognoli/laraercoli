@@ -4,7 +4,7 @@ $prefix: le-website;
 
 @media only screen and (min-width: $desktop-min-width) {
   .#{$prefix}{
-    background-image: url(/bg.jpg);
+    background-image: url(/bg.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,7 +13,7 @@ $prefix: le-website;
     &__container{
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 15px;
+      padding: 50px 15px 0;
     }
   }
 }

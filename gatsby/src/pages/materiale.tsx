@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 
 const Materiale = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Materiale" />
     <h1>Materiale</h1>
   </Layout>
 )

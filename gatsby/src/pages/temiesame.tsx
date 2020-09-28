@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 
 const TemiEsame = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Temi Esame" />
     <h1>TemiEsame</h1>
   </Layout>
 )

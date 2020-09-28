@@ -3,9 +3,6 @@ $prefix: le-header;
 .#{$prefix} {
   position: sticky;
   top: 0;
-  padding: 10px 0;
-  background-color: $main-light;
-  box-shadow: 0px 0px 7px 1px rgba($main-dark, 0.25);
 
   &__container{
     width: 100%;
@@ -14,6 +11,7 @@ $prefix: le-header;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    padding: 20px 0;
   }
 
   &__burger{
@@ -101,6 +99,10 @@ $prefix: le-header;
 
 @media only screen and (min-width: $desktop-min-width) {
   .#{$prefix}{
+
+    &__container{
+      padding: 0;
+    }
     
     &__burger{
       display: none;
@@ -110,6 +112,7 @@ $prefix: le-header;
       max-height: none;
       position: static;
       width: 100%;
+      padding: 0 15px;
 
       &-items{
         display: flex;
@@ -117,21 +120,15 @@ $prefix: le-header;
         justify-content: space-between;
       }
 
+      &-item{
+        padding: 10px 0;
+      }
+
       &-link{
-        
         position: relative;
         padding: 10px 0;
         display: flex;
         align-items: center;
-    
-        &:before{
-          content: "";
-          display: block;
-          width: 10px;
-          height: 10px;
-          border: 1px solid $primary-color;
-          margin-right: 5px;
-        }
     
         &:after{
           content: "";
@@ -147,10 +144,6 @@ $prefix: le-header;
         &:hover{
           color: $secondary-color;
     
-          &:before{
-            border-color: $secondary-color;
-          }
-    
           &:after{
             left: 0;
             right: 0;
@@ -159,15 +152,6 @@ $prefix: le-header;
     
         &--active{
           font-weight: bold;
-    
-          &:before{
-            background-color: $secondary-color;
-            border-color: $secondary-color;
-          }
-    
-          &:hover{
-            color: $primary-color;
-          }
         }
       }
     }
