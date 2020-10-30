@@ -1,0 +1,36 @@
+$prefix: le-social;
+
+.#{$prefix}{
+  margin-bottom: 35px;
+
+  &__item{
+    border: 1px solid $secondary-color;
+    background-color: $secondary-color;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    path {
+      fill: $main-light;
+    }
+  }
+
+  &__icon{
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  .#{$prefix}{
+    &__item{
+      &:hover{
+        background-color: $main-light;
+        path{
+          fill: $secondary-color;
+        }
+      }
+    }
+  }
+}

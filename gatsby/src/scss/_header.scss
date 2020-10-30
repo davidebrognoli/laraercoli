@@ -3,6 +3,7 @@ $prefix: le-header;
 .#{$prefix} {
   position: sticky;
   top: 0;
+  z-index: 5;
 
   &__container{
     width: 100%;

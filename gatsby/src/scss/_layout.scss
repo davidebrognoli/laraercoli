@@ -1,19 +1,59 @@
 $prefix: le-website;
 
-.#{$prefix}{}
+.#{$prefix}{
+  &__header{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+
+    &-icon{
+      width: 90px;
+      height: 90px;
+      border: 1px solid $main-dark;
+      margin-right: 15px;
+      text-align: center;
+
+      &-img{
+        display: inline-block;
+        width: 50px;
+        padding-top: 20px;
+
+        path{
+          fill: $secondary-color;
+        }
+      }
+    }
+  }
+
+  &__title{
+    font-family: $ff-lora;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  &__subtitle{
+    margin-bottom: 10px;
+  }
+
+  &__list{
+    list-style: none;
+  }
+
+  &__content{
+    padding: 0 15px;
+  }
+}
 
 @media only screen and (min-width: $desktop-min-width) {
   .#{$prefix}{
     background-image: url(/bg.png);
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-  
+    
     &__container{
       max-width: 1200px;
       margin: 0 auto;
-      padding: 50px 15px 0;
+      padding: 20px 15px 0;
     }
   }
 }

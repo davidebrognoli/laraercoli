@@ -1,0 +1,56 @@
+$prefix: le-contatti;
+
+.#{$prefix}{
+  &__header{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+
+    &-icon{
+      width: 90px;
+      height: 90px;
+      border: 1px solid $main-dark;
+      margin-right: 15px;
+      text-align: center;
+
+      &-img{
+        display: inline-block;
+        width: 50px;
+        padding-top: 20px;
+
+        path{
+          fill: $secondary-color;
+        }
+      }
+    }
+  }
+
+  &__title{
+    font-family: $ff-lora;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  &__content{
+    h2{
+      margin-bottom: 10px;
+    }
+
+    ul{
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    p{
+      margin-bottom: 20px;
+    }
+
+    a{
+      color: $secondary-color;
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  .#{$prefix}{}
+}

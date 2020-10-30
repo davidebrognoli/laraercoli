@@ -4,4 +4,12 @@ $prefix: le-footer;
   text-align: center;
   color: $secondary-color;
   padding: 20px 0;
+
+  &__privacy {
+    display: inline-block;
+    margin-left: 3px;
+    a{
+      color: $secondary-color;
+    }
+  }
 }

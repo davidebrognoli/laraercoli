@@ -1,0 +1,38 @@
+$prefix: le-materiale;
+
+.#{$prefix}{
+  &__item{
+    display: flex;
+    align-items: flex-start;
+    padding: 30px 0 0;
+
+    &-icon{
+      flex: 0 0 30px;
+      width: 30px;
+      margin-right: 20px;
+
+      path{
+        fill: $secondary-color;
+      }
+    }
+
+    &-title{
+      margin: 0 0 10px 0;
+      font-size: 20px;
+    }
+
+    &-date{
+      font-size: 12px;
+      margin: 0 0 5px 0;
+    }
+
+    &-description{
+      margin-bottom: 10px;
+    }
+
+    &-link{
+      text-decoration: none;
+      color: $secondary-color;
+    }
+  }
+}
