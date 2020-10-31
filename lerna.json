@@ -1,0 +1,7 @@
+{
+  "packages": [
+    "sanity", 
+    "gatsby"
+  ],
+  "version": "0.0.0"
+}
