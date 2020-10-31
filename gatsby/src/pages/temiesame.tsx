@@ -7,20 +7,16 @@ import SEO from "../components/seo"
 export const query = graphql`
   query YearsQuery {
     allSanityAcademicYear(sort: {fields: name, order: DESC}) {
-      edges {
-        node {
-          id
-          name
-        }
+      nodes {
+        id
+        name
       }
     }
   }
 `
 
 const TemiEsame = ({data}) => {
-  const { edges } = data.allSanityAcademicYear;
-
-  console.log(edges);
+  const { nodes } = data.allSanityAcademicYear;
 
   return (
     <Layout>
@@ -35,8 +31,7 @@ const TemiEsame = ({data}) => {
           <h1 className="le-website__title">Temi esame</h1>
         </header>
         <div className="le-temiesame__grid">
-          {edges.map(y => {
-            const { node } = y;
+          {nodes.map(node => {
             const url = `/temiesame/${node.name}`;
             return (
               <Link to={url} className="le-temiesame__grid-item" key={node.id}>

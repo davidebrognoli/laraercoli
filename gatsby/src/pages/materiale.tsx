@@ -7,16 +7,14 @@ import SEO from "../components/seo"
 export const query = graphql`
   query ScholiumQuery {
     allSanityScholium(sort: { fields: [lastUpdate], order: DESC }) {
-      edges {
-        node {
-          id
-          description
-          title
-          lastUpdate(locale: "")
-          file {
-            asset {
-              url
-            }
+      nodes {
+        id
+        description
+        title
+        lastUpdate(locale: "")
+        file {
+          asset {
+            url
           }
         }
       }
@@ -26,7 +24,7 @@ export const query = graphql`
   
 
 const Materiale = ({data}) => {
-  const { edges } = data.allSanityScholium;
+  const { nodes } = data.allSanityScholium;
 
   return (
     <Layout>
@@ -41,18 +39,18 @@ const Materiale = ({data}) => {
           <h1 className="le-website__title">Materiale</h1>
         </header>
         <div className="le-materiale__list">
-          {edges.map(item => (
-            <div className="le-materiale__item" key={item.node.id}>
+          {nodes.map(item => (
+            <div className="le-materiale__item" key={item.id}>
               <svg className="le-materiale__item-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
                 <path d="M862.208 0h-681.984q-33.792 0-57.344 24.064t-23.552 57.856v860.16q0 33.792 23.552 57.856t57.344 24.064h662.528q33.792 0 57.856-24.064t24.064-57.856v-879.616q0-25.6-18.432-44.032t-44.032-18.432zM855.040 569.344v372.736q0 5.12-3.584 8.704t-8.704 3.584h-662.528q-4.096 0-7.68-3.584t-3.584-8.704v-860.16q0-5.12 3.584-8.704t7.68-3.584h500.736q11.264 0 25.088 6.656t20.992 14.848l107.52 124.928q8.192 9.216 14.336 25.6t6.144 27.648v300.032zM758.784 568.32q-15.36-15.36-67.584-15.36h-4.096q-33.792 0-75.776 5.12-25.6-14.336-36.864-24.576-44.032-41.984-67.584-104.448l3.072-10.24q5.12-21.504 7.168-83.968v-4.096q6.144-22.528 4.096-34.816 0-4.096-2.048-8.192l-3.072-7.168q-9.216-18.432-26.624-18.432h-7.168q-11.264 0-20.48 5.632t-11.264 14.848q-7.168 24.576-1.024 66.56 4.096 34.816 19.456 93.184l-4.096 11.264q-13.312 31.744-45.056 92.16l-1.024 3.072q-22.528 44.032-40.96 76.8l-40.96 21.504q-33.792 20.48-54.784 41.472t-24.064 38.4 8.192 24.576l12.288 6.144q8.192 4.096 17.408 4.096 23.552 0 52.224-30.72t66.56-96.256q91.136-29.696 181.248-43.008 32.768 18.432 69.632 30.208t62.464 11.776q9.216 0 16.384-2.048 9.216-2.048 16.384-11.264 2.048-4.096 5.12-17.408v-23.552q-2.048-6.144-7.168-11.264zM291.84 734.208q6.144-13.312 20.48-31.744 17.408-21.504 39.936-38.912l5.12-4.096q-39.936 60.416-65.536 74.752zM487.424 286.72q0-3.072 1.024-5.12 4.096 6.144 9.216 16.896t5.12 33.28v3.072l-10.24 41.984q-8.192-34.816-8.192-60.416 0-15.36 3.072-29.696zM431.104 603.136q12.288-21.504 20.48-36.864 21.504-40.96 36.864-81.92 25.6 46.080 62.464 76.8l8.192 6.144q-72.704 14.336-128 35.84zM747.52 603.136q-3.072 1.024-9.216 1.024-26.624 0-75.776-19.456 49.152-4.096 69.632 3.072 11.264 3.072 17.408 7.168l3.072 2.048q-3.072 5.12-5.12 6.144z"></path>
               </svg>
               <div className="le-materiale__item-content">
-                <h2 className="le-materiale__item-title">{item.node.title}</h2>
-                <p className="le-materiale__item-date">Ultimo aggiornamento: <strong>{item.node.lastUpdate}</strong></p>
+                <h2 className="le-materiale__item-title">{item.title}</h2>
+                <p className="le-materiale__item-date">Ultimo aggiornamento: <strong>{item.lastUpdate}</strong></p>
                 <p className="le-materiale__item-description">
-                  {item.node.description}
+                  {item.description}
                 </p>
-                {item.node.file.asset && <a className="le-materiale__item-link" href={item.node.file.asset.url}>Download</a>}
+                {item.file.asset && <a className="le-materiale__item-link" href={item.file.asset.url}>Download</a>}
               </div>
             </div>
           ))}

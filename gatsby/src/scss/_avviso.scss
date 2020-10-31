@@ -1,0 +1,23 @@
+$prefix: le-avviso;
+
+.#{$prefix}{
+  &__item{
+    padding: 30px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $grey;
+
+    &-title{
+      margin: 0 0 10px 0;
+      font-size: 20px;
+    }
+
+    &-date{
+      font-size: 12px;
+      margin: 0 0 5px 0;
+    }
+
+    &-description{
+      margin-bottom: 10px;
+    }
+  }
+}

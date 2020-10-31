@@ -16,6 +16,7 @@ const Header = () => {
     { id: 'materiale', href: '/materiale', label: 'Materiali'},
     { id: 'temiesame', href: '/temiesame', label: 'Temi esame'},
     { id: 'contatti', href: '/contatti', label: 'Contatti'},
+    { id: 'avvisi', href: '/avvisi', label: 'Avvisi'},
   ]
 
   const click = () => {
