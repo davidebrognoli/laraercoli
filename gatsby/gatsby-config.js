@@ -29,19 +29,21 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [
-          {
-            family: `Lato`,
-            variants: [`300`, `400`, `500`, `700`]
-          },
-          {
-            family: `Lora`,
+        fonts: {
+          google: [
+            {
+              family: `Lato`,
+              variants: [`300`, `400`, `500`, `700`],
+            },
+            {
+              family: `Lora`,
             variants: [`700`]
-          }
-        ],
-      }
+            },
+          ],
+        },
+      },
     },
     {
       resolve: 'gatsby-source-sanity',
