@@ -50,7 +50,7 @@ const Materiale = ({data}) => {
                 <p className="le-materiale__item-description">
                   {item.description}
                 </p>
-                {item.file.asset && <a className="le-materiale__item-link" href={item.file.asset.url}>Download</a>}
+                {item.file && item.file.asset && <a className="le-materiale__item-link" href={item.file.asset.url}>Download</a>}
               </div>
             </div>
           ))}
