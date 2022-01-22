@@ -39,40 +39,41 @@ module.exports = {
             },
             {
               family: `Lora`,
-            variants: [`700`]
+              variants: [`700`],
             },
           ],
         },
       },
     },
     {
-      resolve: 'gatsby-source-sanity',
+      resolve: "gatsby-source-sanity",
       options: {
-        projectId: 'xg5ljnpz',
-        dataset: 'production',
+        projectId: "xg5ljnpz",
+        dataset: "production",
         // To enable preview of drafts, copy .env-example into .env,
         // and add a token with read permissions
         token: process.env.SANITY_TOKEN,
         watchMode: true,
-        overlayDrafts: true
-      }
+        overlayDrafts: true,
+      },
     },
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: "gatsby-plugin-cookiebot",
       options: {
-        trackingIds: [
-          "UA-54920507-1"
-        ],
-        gtagConfig: {
-          anonymize_ip: true,
-          cookie_expires: 0,
-        },
-        pluginConfig: {
-          head: false,
-          respectDNT: true,
-          exclude: [],
-        },
+        cookiebotId: "c2f6a2fe-df03-498c-971e-dba917c7838b",
+        manualMode: false,
+        blockGtm: true,
+        includeInDevelopment: true,
+        pluginDebug: false,
       },
-    }
+    },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-KRLR2M4",
+        includeInDevelopment: true,
+        defaultDataLayer: { platform: "gatsby" },
+      },
+    },
   ],
 }
