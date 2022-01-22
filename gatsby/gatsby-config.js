@@ -58,6 +58,14 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-KRLR2M4",
+        includeInDevelopment: true,
+        defaultDataLayer: { platform: "gatsby" },
+      },
+    },
+    {
       resolve: "gatsby-plugin-cookiebot",
       options: {
         cookiebotId: "c2f6a2fe-df03-498c-971e-dba917c7838b",
@@ -65,14 +73,6 @@ module.exports = {
         blockGtm: true,
         includeInDevelopment: true,
         pluginDebug: false,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-KRLR2M4",
-        includeInDevelopment: true,
-        defaultDataLayer: { platform: "gatsby" },
       },
     },
   ],
