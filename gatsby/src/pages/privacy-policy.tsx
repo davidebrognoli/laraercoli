@@ -1,5 +1,4 @@
 import React, { useEffect } from "react"
-import { Helmet } from "react-helmet"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
