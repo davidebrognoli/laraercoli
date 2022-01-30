@@ -1,7 +1,6 @@
 import React from "react"
 import Header from "./header"
 import "../scss/style.scss"
-import Iubenda from "react-iubenda-policy"
 import { Link } from "gatsby"
 
 interface LayoutProps {
