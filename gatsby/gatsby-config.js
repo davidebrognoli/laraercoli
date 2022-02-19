@@ -65,15 +65,5 @@ module.exports = {
         defaultDataLayer: { platform: "gatsby" },
       },
     },
-    {
-      resolve: "gatsby-plugin-cookiebot",
-      options: {
-        cookiebotId: "c2f6a2fe-df03-498c-971e-dba917c7838b",
-        manualMode: false,
-        blockGtm: true,
-        includeInDevelopment: true,
-        pluginDebug: false,
-      },
-    },
   ],
 }
