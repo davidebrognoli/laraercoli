@@ -15,7 +15,7 @@
     "gatsby-plugin-sass": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-source-filesystem": "^5.13.1",
-    "gatsby-source-sanity": "^7.9.1",
+    "gatsby-source-sanity": "^7.9.2",
     "gatsby-transformer-sharp": "^5.13.1",
     "normalize-scss": "^7.0.1",
     "prop-types": "^15.8.1",
@@ -49,5 +49,11 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "overrides": {
+    "axios": "^1.7.7",
+    "cookie": "^0.7.0",
+    "postcss": "^8.4.47",
+    "tmp": "^0.2.3"
   }
 }
