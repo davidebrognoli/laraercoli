@@ -4,4 +4,5 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+// Import normalize.css for modern browser reset
+import 'normalize.css'

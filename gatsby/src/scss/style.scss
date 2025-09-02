@@ -1,14 +1,15 @@
-@import '~normalize-scss/sass/normalize';
+// normalize.css è importato in gatsby-browser.js
 
-@import 'variables';
-@import 'base';
-@import 'layout';
-@import 'header';
-@import 'footer';
+// Variables
+@use 'variables' as *;
+@use 'base';
+@use 'layout';
+@use 'header';
+@use 'footer';
 
-@import 'home';
-@import 'social';
-@import 'contatti';
-@import 'materiale';
-@import 'temiesame';
-@import 'avviso';
+@use 'home';
+@use 'social';
+@use 'contatti';
+@use 'materiale';
+@use 'temiesame';
+@use 'avviso';
