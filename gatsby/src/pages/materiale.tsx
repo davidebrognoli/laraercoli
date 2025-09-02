@@ -1,12 +1,11 @@
-import { graphql } from "gatsby";
+import { graphql, HeadFC } from "gatsby";
 import React from "react"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 
 export const query = graphql`
   query ScholiumQuery {
-    allSanityScholium(sort: { fields: [lastUpdate], order: DESC }) {
+    allSanityScholium(sort: {lastUpdate: DESC}) {
       nodes {
         id
         description
@@ -28,7 +27,6 @@ const Materiale = ({data}) => {
 
   return (
     <Layout>
-      <SEO title="Materiali" />
       <div className="le-website__content">
         <header className="le-website__header">
           <div className="le-website__header-icon">
@@ -59,5 +57,12 @@ const Materiale = ({data}) => {
     </Layout>
   )
 }
+
+export const Head: HeadFC = () => (
+  <>
+    <title>Materiale | Lara Ercoli</title>
+    <meta name="description" content="Materiale didattico e risorse" />
+  </>
+)
 
 export default Materiale

@@ -1,10 +1,9 @@
-import { graphql } from "gatsby"
+import { graphql, HeadFC } from "gatsby"
 import React from "react"
 
 import BlockContent from '@sanity/block-content-to-react'
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 
 export const query = graphql`
   query ContattiQuery {
@@ -20,7 +19,6 @@ const Contatti = ({data}) => {
 
   return (
     <Layout>
-      <SEO title="Contatti" />
       <div className="le-website__content">
         <header className="le-contatti__header">
           <div className="le-contatti__header-icon">
@@ -37,5 +35,12 @@ const Contatti = ({data}) => {
     </Layout>
   )
 }
+
+export const Head: HeadFC = () => (
+  <>
+    <title>Contatti | Lara Ercoli</title>
+    <meta name="description" content="Informazioni di contatto" />
+  </>
+)
 
 export default Contatti

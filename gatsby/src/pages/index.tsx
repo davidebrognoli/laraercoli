@@ -1,11 +1,10 @@
-import { graphql } from "gatsby"
+import { graphql, HeadFC } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 
 import BlockContent from '@sanity/block-content-to-react'
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import Social from "../components/social"
 
 export const query = graphql`
@@ -32,7 +31,6 @@ const IndexPage = ({data}) => {
 
   return (
     <Layout>
-      <SEO title="Lara Ercoli" />
       <div className="le-home">
         <figure className="le-home__img-container">
           {gatsbyImage && (
@@ -55,5 +53,12 @@ const IndexPage = ({data}) => {
     </Layout>
   )
 }
+
+export const Head: HeadFC = () => (
+  <>
+    <title>Lara Ercoli</title>
+    <meta name="description" content="Sito web di Lara Ercoli" />
+  </>
+)
 
 export default IndexPage

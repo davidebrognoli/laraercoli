@@ -1,13 +1,12 @@
-import { graphql } from "gatsby";
+import { graphql, HeadFC } from "gatsby";
 import React from "react"
 import BlockContent from '@sanity/block-content-to-react'
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 
 export const query = graphql`
   query NoticeQuery {
-    allSanityNotice(sort: {order: ASC, fields: date}) {
+    allSanityNotice(sort: {date: ASC}) {
       nodes {
         id
         date
@@ -25,7 +24,6 @@ const Avvisi = ({data}) => {
 
   return (
     <Layout>
-      <SEO title="Avvisi" />
       <div className="le-website__content">
         <header className="le-website__header">
           <div className="le-website__header-icon">
@@ -52,5 +50,12 @@ const Avvisi = ({data}) => {
     </Layout>
   )
 }
+
+export const Head: HeadFC = () => (
+  <>
+    <title>Avvisi | Lara Ercoli</title>
+    <meta name="description" content="Avvisi e comunicazioni" />
+  </>
+)
 
 export default Avvisi

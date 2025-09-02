@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
+import { HeadFC } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 
 const PrivacyPolicy = () => {
   useEffect(() => {
@@ -12,16 +12,19 @@ const PrivacyPolicy = () => {
 
     const cookiebotWrapper = document.getElementById("le-cookiebot")
 
-    cookiebotWrapper.appendChild(script)
+    if (cookiebotWrapper) {
+      cookiebotWrapper.appendChild(script)
+    }
 
     return () => {
-      cookiebotWrapper.removeChild(script)
+      if (cookiebotWrapper) {
+        cookiebotWrapper.removeChild(script)
+      }
     }
   }, [])
 
   return (
     <Layout>
-      <SEO title="Avvisi" />
       <div className="le-website__content">
         <header className="le-website__header">
           <div className="le-website__header-icon">
@@ -41,5 +44,12 @@ const PrivacyPolicy = () => {
     </Layout>
   )
 }
+
+export const Head: HeadFC = () => (
+  <>
+    <title>Privacy Policy | Lara Ercoli</title>
+    <meta name="description" content="Informativa sulla privacy" />
+  </>
+)
 
 export default PrivacyPolicy

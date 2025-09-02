@@ -1,12 +1,11 @@
-import { graphql, Link } from "gatsby"
+import { graphql, Link, HeadFC } from "gatsby"
 import React from "react"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 
 export const query = graphql`
   query YearsQuery {
-    allSanityAcademicYear(sort: {fields: name, order: DESC}) {
+    allSanityAcademicYear(sort: {name: DESC}) {
       nodes {
         id
         name
@@ -20,7 +19,6 @@ const TemiEsame = ({data}) => {
 
   return (
     <Layout>
-      <SEO title="Temi Esame" />
       <div className="le-website__content">
         <header className="le-website__header">
           <div className="le-website__header-icon">
@@ -48,5 +46,12 @@ const TemiEsame = ({data}) => {
     </Layout>
   )
 }
+
+export const Head: HeadFC = () => (
+  <>
+    <title>Temi Esame | Lara Ercoli</title>
+    <meta name="description" content="Temi d'esame e tracce" />
+  </>
+)
 
 export default TemiEsame
