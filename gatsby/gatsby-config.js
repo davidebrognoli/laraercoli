@@ -27,6 +27,19 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-remove-generator`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Lato:300,400,500,700`,
+          `Lora:700`
+        ],
+        display: 'swap',
+        preconnect: true,
+        crossOrigin: 'anonymous',
+      },
+    },
     `gatsby-plugin-sass`,
     {
       resolve: "gatsby-source-sanity",

@@ -6,23 +6,37 @@
 
 import React from "react"
 
+// Preload critical fonts to improve LCP
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
+    // DNS prefetch for external domains
     <link
-      key="google-fonts-preconnect"
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
+      key="dns-prefetch-fonts"
+      rel="dns-prefetch"
+      href="//fonts.googleapis.com"
     />,
     <link
-      key="google-fonts-preconnect-crossorigin"
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
+      key="dns-prefetch-gstatic"
+      rel="dns-prefetch"
+      href="//fonts.gstatic.com"
+    />,
+    // Preload critical font files (Lato Regular 400 - most commonly used)
+    <link
+      key="preload-lato-400"
+      rel="preload"
+      href="https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjx4wXiWtFCc.woff2"
+      as="font"
+      type="font/woff2"
       crossOrigin="anonymous"
     />,
+    // Preload Lora Bold 700 for headings
     <link
-      key="google-fonts"
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Lora:wght@700&display=swap"
-      rel="stylesheet"
+      key="preload-lora-700"
+      rel="preload"
+      href="https://fonts.gstatic.com/s/lora/v36/0QI6MX1D_JOuGQbT0gvTJPa787weuxJBkqsxzgXRucW4.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
     />,
   ])
 }
