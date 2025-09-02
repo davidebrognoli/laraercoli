@@ -1,4 +1,5 @@
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 
 import BlockContent from '@sanity/block-content-to-react'
@@ -14,26 +15,33 @@ export const query = graphql`
       _rawBody
     }
     image: file(relativePath: {eq: "lara.jpg"}) {
-      id
       childImageSharp {
-        fluid {
-          src
-        }
+        gatsbyImageData(
+          width: 400
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
   }
 `
 
 const IndexPage = ({data}) => {
-
-  const { image, page } = data;
+  const { page, image } = data;
+  const gatsbyImage = getImage(image);
 
   return (
     <Layout>
       <SEO title="Lara Ercoli" />
       <div className="le-home">
         <figure className="le-home__img-container">
-          <img className="le-home__img" src={image.childImageSharp.fluid.src} alt="Lara Ercoli" />
+          {gatsbyImage && (
+            <GatsbyImage 
+              image={gatsbyImage} 
+              alt="Lara Ercoli" 
+              className="le-home__img"
+            />
+          )}
         </figure>
         <div className="le-home__content">
           <h1 className="le-home__title">Lara Ercoli</h1>

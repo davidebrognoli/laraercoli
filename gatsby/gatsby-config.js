@@ -6,6 +6,9 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,8 +16,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -29,23 +30,6 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-webfonts`,
-      options: {
-        fonts: {
-          google: [
-            {
-              family: `Lato`,
-              variants: [`300`, `400`, `500`, `700`],
-            },
-            {
-              family: `Lora`,
-              variants: [`700`],
-            },
-          ],
-        },
-      },
-    },
-    {
       resolve: "gatsby-source-sanity",
       options: {
         projectId: "xg5ljnpz",
@@ -55,14 +39,6 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
         watchMode: true,
         overlayDrafts: true,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-KRLR2M4",
-        includeInDevelopment: true,
-        defaultDataLayer: { platform: "gatsby" },
       },
     },
   ],
