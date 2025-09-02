@@ -5,9 +5,20 @@
   padding: 0;
 }
 
-body{
+// Optimize font loading and display
+body {
   font-family: $ff-lato;
   color: $main-dark;
   font-size: 14px;
   line-height: 1.5;
+  font-display: swap; // Fallback for older browsers
+}
+
+// Ensure smooth font loading
+.font-lato {
+  font-family: $ff-lato;
+}
+
+.font-lora {
+  font-family: $ff-lora;
 }

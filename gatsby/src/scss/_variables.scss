@@ -5,8 +5,9 @@ $primary-color: #132A46;
 $secondary-color: #8CB994;
 $grey: #CCC;
 
-$ff-lato: 'Lato', sans-serif;
-$ff-lora: 'Lora', serif;
+// Optimized font stacks with system fallbacks
+$ff-lato: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$ff-lora: 'Lora', Georgia, 'Times New Roman', Times, serif;
 
 $desktop-min-width: 769px;
 $lg-desktop-min-width: 1200px;
